@@ -1,3 +1,7 @@
+Message.all.destroy_all
+User.all.destroy_all
+Channel.all.destroy_all
+
 User.create!([
     {email: "mathieuromainvalery@gmail.com", password: "123456789", first_name: "Mathieu", last_name: "Valery"},
     {email: "jg@gmail.com", password: "123456789", first_name: "Jean", last_name: "Guy"},
@@ -11,8 +15,8 @@ User.create!([
     {name: "react"}
   ])
   Message.create!([
-    {user_id: 1, channel_id: 1, content: "hello chat"},
-    {user_id: 2, channel_id: 1, content: "hey mate"},
-    {user_id: 2, channel_id: 2, content: "hello paris channel"},
-    {user_id: 3, channel_id: 3, content: "hello react channel"}
+    {user_id: User.first.id, channel_id: Channel.first.id, content: "hello chat"},
+    {user_id: User.second.id, channel_id: Channel.first.id, content: "hey mate"},
+    {user_id: User.second.id, channel_id: Channel.second.id, content: "hello paris channel"},
+    {user_id: User.third.id, channel_id: Channel.third.id, content: "hello react channel"}
   ])
